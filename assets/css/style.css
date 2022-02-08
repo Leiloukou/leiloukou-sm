@@ -1,38 +1,169 @@
-/* .install__card {
-      font-family: 'Poppins', 'Comfortaa', 'Roboto', 'Google Sans', 'Noto Sans', Arial, Helvetica, sans-serif, sans-serif;
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      left: 30px;
-      width: max-content;
-      padding: 30px 80px 50px 30px;
-      background: #f38693;
-      color: #ffefef;
-      border-radius: 10px;
-      transform: translateX(calc(-100% - 30px));
-      display: block;
-      transition: transform 750ms cubic-bezier(0.63,-1.36, 0.32, 2.16);
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  color: #fff;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1.4;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.install__card {
+  font-family: 'Poppins', 'Comfortaa', 'Roboto', 'Google Sans', 'Noto Sans', Arial, Helvetica, sans-serif, sans-serif;
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: max-content;
+  padding: 30px 80px 50px 30px;
+  background: #f38693;
+  color: #ffefef;
+  border-radius: 10px;
+  transform: translateX(calc(-100% - 30px));
+  display: block;
+  transition: transform 750ms cubic-bezier(0.63, -1.36, 0.32, 2.16);
+}
 .install__btn {
-      margin-top: 0;
-      margin-bottom: 20px;
-      color: #684a4a;
-      font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #684a4a;
+  font-size: 1.2rem;
 }
 
 .install__btn:hover,
 .btn:focus {
-      color: #533b3b;
+  color: #533b3b;
 }
 
 .install__close {
-      background: #f38693;
-      color: #854444;
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      cursor: pointer;
-      padding: 0;
-      border: none;
-} */
+  background: #f38693;
+  color: #854444;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+}

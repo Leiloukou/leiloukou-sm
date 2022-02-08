@@ -1,2 +1,3 @@
-sitemap: http://LEIL/sitemap.xml
-sitemap: https://LEIL/sitemap.xml
+# leiloukou is best!
+
+sitemap: https://leiloukou.netlify.app/sitemap.xml
