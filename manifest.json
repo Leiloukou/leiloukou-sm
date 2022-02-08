@@ -1,0 +1,213 @@
+{
+	"name": "Leiloukou",
+	"short_name": "Leiloukou",
+	"description": "Leiloukou is an app for experienced drink, and or smoothie experts. And eat on!",
+	"start_url": "/",
+	"id": "http://localhost:5500/",
+	"scope": "/",
+	"background_color": "#FFFFFF",
+	"theme_color": "#DDCF9F",
+	"display_override": ["standalone"],
+	"display": "fullscreen",
+	"orientation": "portrait-primary",
+	"icons": [
+		{
+			"src": "./icons/favicon-72.png",
+			"type": "image/png",
+			"sizes": "72x72",
+			"purpose": "any"
+		},
+		{
+			"src": "./icons/favicon-96.png",
+			"type": "image/png",
+			"sizes": "96x96",
+			"purpose": "any"
+		},
+		{
+			"src": "./icons/favicon-128.png",
+			"type": "image/png",
+			"sizes": "128x128",
+			"purpose": "any"
+		},
+		{
+			"src": "./icons/favicon-384.png",
+			"type": "image/png",
+			"sizes": "384x384",
+			"purpose": "any"
+		},
+		{
+			"src": "./icons/favicon-512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "any"
+		},
+		{
+			"src": "./icons/favicon-m-72.png",
+			"type": "image/png",
+			"sizes": "72x72",
+			"purpose": "maskable"
+		},
+		{
+			"src": "./icons/favicon-m-96.png",
+			"type": "image/png",
+			"sizes": "96x96",
+			"purpose": "maskable"
+		},
+		{
+			"src": "./icons/favicon-m-128.png",
+			"type": "image/png",
+			"sizes": "128x128",
+			"purpose": "maskable"
+		},
+		{
+			"src": "./icons/favicon-m-384.png",
+			"type": "image/png",
+			"sizes": "384x384",
+			"purpose": "maskable"
+		},
+		{
+			"src": "./icons/favicon-m-512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		}
+	],
+	"shortcuts": [
+		{
+			"name": "Home",
+			"short_name": "Home",
+			"description": "The Leiloukou Homepage",
+			"url": "/",
+			"icons": [
+				{
+					"src": "./icons/favicon-72.png",
+					"type": "image/png",
+					"sizes": "72x72",
+					"purpose": "any"
+				},
+				{
+					"src": "./icons/favicon-96.png",
+					"type": "image/png",
+					"sizes": "96x96",
+					"purpose": "any"
+				},
+				{
+					"src": "./icons/favicon-128.png",
+					"type": "image/png",
+					"sizes": "128x128",
+					"purpose": "any"
+				},
+				{
+					"src": "./icons/favicon-384.png",
+					"type": "image/png",
+					"sizes": "384x384",
+					"purpose": "any"
+				},
+				{
+					"src": "./icons/favicon-512.png",
+					"type": "image/png",
+					"sizes": "512x512",
+					"purpose": "any"
+				},
+				{
+					"src": "./icons/favicon-m-72.png",
+					"type": "image/png",
+					"sizes": "72x72",
+					"purpose": "maskable"
+				},
+				{
+					"src": "./icons/favicon-m-96.png",
+					"type": "image/png",
+					"sizes": "96x96",
+					"purpose": "maskable"
+				},
+				{
+					"src": "./icons/favicon-m-128.png",
+					"type": "image/png",
+					"sizes": "128x128",
+					"purpose": "maskable"
+				},
+				{
+					"src": "./icons/favicon-m-384.png",
+					"type": "image/png",
+					"sizes": "384x384",
+					"purpose": "maskable"
+				},
+				{
+					"src": "./icons/favicon-m-512.png",
+					"type": "image/png",
+					"sizes": "512x512",
+					"purpose": "maskable"
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"short_name": "Dashboard",
+			"description": "Your dashboard",
+			"url": "/dashboard",
+			"icons": [
+				{
+					"src": "./icons/favicon-72.png",
+					"type": "image/png",
+					"sizes": "72x72",
+					"purpose": "any"
+				},
+				{
+					"src": "./icons/favicon-96.png",
+					"type": "image/png",
+					"sizes": "96x96",
+					"purpose": "any"
+				},
+				{
+					"src": "./icons/favicon-128.png",
+					"type": "image/png",
+					"sizes": "128x128",
+					"purpose": "any"
+				},
+				{
+					"src": "./icons/favicon-384.png",
+					"type": "image/png",
+					"sizes": "384x384",
+					"purpose": "any"
+				},
+				{
+					"src": "./icons/favicon-512.png",
+					"type": "image/png",
+					"sizes": "512x512",
+					"purpose": "any"
+				},
+				{
+					"src": "./icons/favicon-m-72.png",
+					"type": "image/png",
+					"sizes": "72x72",
+					"purpose": "maskable"
+				},
+				{
+					"src": "./icons/favicon-m-96.png",
+					"type": "image/png",
+					"sizes": "96x96",
+					"purpose": "maskable"
+				},
+				{
+					"src": "./icons/favicon-m-128.png",
+					"type": "image/png",
+					"sizes": "128x128",
+					"purpose": "maskable"
+				},
+				{
+					"src": "./icons/favicon-m-384.png",
+					"type": "image/png",
+					"sizes": "384x384",
+					"purpose": "maskable"
+				},
+				{
+					"src": "./icons/favicon-m-512.png",
+					"type": "image/png",
+					"sizes": "512x512",
+					"purpose": "maskable"
+				}
+			]
+		}
+	]
+}

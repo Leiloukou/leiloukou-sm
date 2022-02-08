@@ -1,0 +1,2 @@
+sitemap: http://LEIL/sitemap.xml
+sitemap: https://LEIL/sitemap.xml
