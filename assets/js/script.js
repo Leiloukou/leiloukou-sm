@@ -75,14 +75,9 @@ window.addEventListener('appinstalled', (evt) => {});
 
 // firebase
 
-// Import the functions you need from the SDKs you need
 import {
 	initializeApp
-} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-import {
-	getAnalytics
-} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
-import { getMessaging, getToken } from 'firebase/messaging';
+} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";;
 
 const firebaseConfig = {
 	apiKey: "AIzaSyC55Pyo9cqAURnbcAo_pXZ2fF7z_4c5gK0",
@@ -96,9 +91,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app)
-const messaging = getMessaging();
-
 messaging.getToken({
 	vapidKey:
 		'BBmtZ7fgQsZLm-89Qr6vWbggr3L2ocG2ENks8FdlSW7RgYZCRRu6TWQ6UAVR4qFn0xuxnkeMs6v39pSJje5J8-8'

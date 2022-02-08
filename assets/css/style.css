@@ -79,8 +79,7 @@ time,
 mark,
 audio,
 video {
-  color: #fff;
-  background-color: #fff;
+  color: #000;
   margin: 0;
   padding: 0;
   border: 0;
@@ -130,9 +129,33 @@ table {
   border-spacing: 0;
 }
 
+body {
+  font-family: 'Poppins', 'Comfortaa', 'Roboto', 'Google Sans', 'Noto Sans', Arial, Helvetica, sans-serif, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f57d7d;
+}
+
+.header__inner {
+  width: 80vw;
+  max-width: 1200px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
 .install__card {
   font-family: 'Poppins', 'Comfortaa', 'Roboto', 'Google Sans', 'Noto Sans', Arial, Helvetica, sans-serif, sans-serif;
-  display: none;
   position: fixed;
   bottom: 30px;
   left: 30px;
@@ -141,10 +164,11 @@ table {
   background: #f38693;
   color: #ffefef;
   border-radius: 10px;
-  transform: translateX(calc(-100% - 30px));
+  /* transform: translateX(calc(-100% - 30px)); */
   display: block;
   transition: transform 750ms cubic-bezier(0.63, -1.36, 0.32, 2.16);
 }
+
 .install__btn {
   margin-top: 0;
   margin-bottom: 20px;
