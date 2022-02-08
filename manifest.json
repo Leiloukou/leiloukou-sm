@@ -6,7 +6,7 @@
 	"id": "http://localhost:5500/",
 	"scope": "/",
 	"background_color": "#FFFFFF",
-	"theme_color": "#DDCF9F",
+	"theme_color": "#F57D7D",
 	"display_override": ["standalone"],
 	"display": "fullscreen",
 	"orientation": "portrait-primary",

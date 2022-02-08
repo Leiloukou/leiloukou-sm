@@ -1,8 +1,8 @@
-// if ('serviceWorker' in navigator) {
-// 	window.navigator.serviceWorker
-// 		.register('/sw.js')
-// 		.catch((err) => console.error('ServiceWorker error: ', err));
-// }
+if ('serviceWorker' in navigator) {
+	window.navigator.serviceWorker
+		.register('/sw.js')
+		.catch((err) => console.error('ServiceWorker error: ', err));
+}
 
 // install prompting
 

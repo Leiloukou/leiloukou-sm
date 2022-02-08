@@ -1,6 +1,4 @@
-/** @format */
-
-const cacheName = 'v1.0.1';
+const cacheName = 'v1.0.5';
 const assets = [
 	'/',
 	'/login',
