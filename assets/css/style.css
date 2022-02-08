@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,700&display=swap');
+
 html,
 body,
 div,
@@ -133,11 +135,17 @@ body {
   font-family: 'Poppins', 'Comfortaa', 'Roboto', 'Google Sans', 'Noto Sans', Arial, Helvetica, sans-serif, sans-serif;
 }
 
+a,
+a:visited {
+  text-decoration: none;
+}
+
 header {
   display: flex;
   justify-content: center;
   align-items: center;
   background: #f57d7d;
+  padding: 20px;
 }
 
 .header__inner {
@@ -154,6 +162,21 @@ header {
   font-weight: 800;
 }
 
+.logo a {
+  margin-left: 10px;
+  color: #462727;
+  transition: color 250ms ease-in, padding-bottom 250ms ease-in, margin 250ms ease-in;
+}
+
+.logo a:hover,
+.logo a:focus {
+  margin-left: 15px;
+  color: #493030;
+  padding-bottom: 8px;
+}
+
+
+
 .install__card {
   font-family: 'Poppins', 'Comfortaa', 'Roboto', 'Google Sans', 'Noto Sans', Arial, Helvetica, sans-serif, sans-serif;
   position: fixed;
@@ -161,7 +184,7 @@ header {
   left: 30px;
   width: max-content;
   padding: 30px 80px 50px 30px;
-  background: #f38693;
+  background: #f57d7d;
   color: #ffefef;
   border-radius: 10px;
   /* transform: translateX(calc(-100% - 30px)); */
@@ -170,23 +193,35 @@ header {
 }
 
 .install__btn {
+  font-weight: 600;;
   margin-top: 0;
   margin-bottom: 20px;
   color: #684a4a;
+  background: #dfb3b8;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
   font-size: 1.2rem;
+  transition: color 500ms ease-in, background 500ms ease-in;
 }
 
 .install__btn:hover,
 .btn:focus {
+  background: #d16969;
   color: #533b3b;
 }
 
+.install__paragraph {
+  color: #5f4144;
+  font-weight: 500;
+}
+
 .install__close {
-  background: #f38693;
+  background: transparent;
   color: #854444;
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 12px;
+  right: 12px;
   cursor: pointer;
   padding: 0;
   border: none;
