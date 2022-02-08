@@ -4,8 +4,6 @@
 <head>
     <!-- ? links -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- * meta -->
@@ -26,7 +24,37 @@
 
 <body>
 
-    <body class="grey lighten-4">
+    <body>
+        <div class="install__card" id="install-card">
+            <button class="install__btn btn" id="install-button">Install Our app</button>
+            <button class="install__close" id="install-close"><i class="material-icons">close</i></button>
+            <p class="install__paragraph">Install our app! <br>It won't take up any space on you phone.</p>
+        </div>
+        <header>
+            <div class="header__inner">
+                <h1 class="logo">
+                    <img src="/assets/img/favicon.png" alt="The Leiloukou logo" height="50px">
+                    <a href="/">Leiloukou</a>
+                </h1>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/dashboard/">Dashboard</a></li>
+                        <li><a href="/recent">Recent</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="main-outer">
+            <main>
+                <article>
+                    <h2>Recent posts</h2>
+                    <section class="post">
+                        <h3 class="post__title">Leiloukou is best!</h3>
+                    </section>
+                </article>
+            </main>
+        </div>
         <!--* javascript -->
         <script src="/assets/js/no-module.js" nomodule type="text/javascript" async defer></script>
         <script src="/assets/js/script.js" type="module" async defer></script>

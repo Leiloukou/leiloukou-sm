@@ -25,8 +25,8 @@
 <body>
 
       <body>
-            <div class="install__card">
-                  <button class="install__btn btn" id="instal-button">Install Our app</button>
+            <div class="install__card" id="install-card">
+                  <button class="install__btn btn" id="install-button">Install Our app</button>
                   <button class="install__close" id="install-close"><i class="material-icons">close</i></button>
                   <p class="install__paragraph">Install our app! <br>It won't take up any space on you phone.</p>
             </div>
@@ -36,9 +36,25 @@
                               <img src="/assets/img/favicon.png" alt="The Leiloukou logo" height="50px">
                               <a href="/">Leiloukou</a>
                         </h1>
+                        <nav>
+                              <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/dashboard/">Dashboard</a></li>
+                                    <li><a href="/recent">Recent</a></li>
+                              </ul>
+                        </nav>
                   </div>
             </header>
-            <h2>Welcome to leiloukou</h2>
+            <div class="main-outer">
+                  <main>
+                        <article>
+                              <h2>Recent posts</h2>
+                              <section class="post">
+                                    <h3 class="post__title">Leiloukou is best!</h3>
+                              </section>
+                        </article>
+                  </main>
+            </div>
             <!--* javascript -->
             <script src="/assets/js/no-module.js" nomodule type="text/javascript" async defer></script>
             <script src="/assets/js/script.js" type="module" async defer></script>

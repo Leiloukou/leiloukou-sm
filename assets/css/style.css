@@ -81,7 +81,7 @@ time,
 mark,
 audio,
 video {
-  color: #000;
+  color: #ebe7e7;
   margin: 0;
   padding: 0;
   border: 0;
@@ -132,7 +132,13 @@ table {
 }
 
 body {
+  background: rgb(31, 34, 37);
   font-family: 'Poppins', 'Comfortaa', 'Roboto', 'Google Sans', 'Noto Sans', Arial, Helvetica, sans-serif, sans-serif;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 a,
@@ -151,6 +157,7 @@ header {
 .header__inner {
   width: 80vw;
   max-width: 1200px;
+  display: flex;
 }
 
 .logo {
@@ -164,18 +171,70 @@ header {
 
 .logo a {
   margin-left: 10px;
-  color: #462727;
-  transition: color 250ms ease-in, padding-bottom 250ms ease-in, margin 250ms ease-in;
+  color: #331c1c;
+  border-left: 0px solid #d16969;
+  transition: color 250ms ease-in, padding-left 250ms ease-in, border-left 250ms ease-in, margin 250ms ease-in;
 }
 
 .logo a:hover,
 .logo a:focus {
   margin-left: 15px;
+  padding-left: 15px;
+  border-left: 5px solid #d16969;
   color: #493030;
-  padding-bottom: 8px;
 }
 
+header ul {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: auto;
+  margin-left: auto;
+}
 
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: auto;
+  margin-left: auto;
+}
+
+header li {
+  margin: auto 20px;
+  color: #f57d7d
+}
+
+header li a {
+  font-weight: 500;
+  color: #6e4747;
+  border-radius: 3px;
+  transition: color 300ms ease-out, background 200ms 300ms ease-in, padding 300ms 200ms ease-out;
+}
+
+header li a:hover,
+header li a:focus {
+  background: #502f2f;
+  color: #f57d7d;
+  padding: 6px;
+}
+
+/* main */
+
+.main-outer {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+main {
+  width: 80vw;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+}
+
+/* random stuffffffff */
 
 .install__card {
   font-family: 'Poppins', 'Comfortaa', 'Roboto', 'Google Sans', 'Noto Sans', Arial, Helvetica, sans-serif, sans-serif;
@@ -187,7 +246,7 @@ header {
   background: #f57d7d;
   color: #ffefef;
   border-radius: 10px;
-  /* transform: translateX(calc(-100% - 30px)); */
+  transform: translateX(calc(-100% - 30px));
   display: block;
   transition: transform 750ms cubic-bezier(0.63, -1.36, 0.32, 2.16);
 }
@@ -218,11 +277,38 @@ header {
 
 .install__close {
   background: transparent;
-  color: #854444;
   position: absolute;
   top: 12px;
   right: 12px;
   cursor: pointer;
   padding: 0;
   border: none;
+}
+
+.install__close i {
+  color: #854444;
+}
+@media (max-width: 642px) {
+  header nav {
+    display: none;
+  }
+  .install__card {
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+    width: calc(100vw - 40px);
+    text-align: center;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 750ms cubic-bezier(0.36, 1, 1, 1);
+  }
+}
+
+@media (max-width: 320px) {
+  .logo a:hover,
+  .logo a:focus {
+    padding-left: 0;
+    margin-left: 20px;
+    border-left: none;
+  }
 }
