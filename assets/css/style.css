@@ -104,6 +104,10 @@ section {
   display: block;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   line-height: 1.4;
 }
@@ -134,6 +138,7 @@ table {
 body {
   background: rgb(31, 34, 37);
   font-family: 'Poppins', 'Comfortaa', 'Roboto', 'Google Sans', 'Noto Sans', Arial, Helvetica, sans-serif, sans-serif;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -150,8 +155,9 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f57d7d;
   padding: 20px;
+  background: #f57d7d;
+  width: 100vw;
 }
 
 .header__inner {
@@ -224,14 +230,63 @@ header li a:focus {
 .main-outer {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  align-items: center;
+  padding: 20px;
+  margin: 40px 0;
+}
+
+article h2 {
+  text-align: center;
 }
 
 main {
-  width: 80vw;
-  max-width: 1200px;
   display: flex;
   justify-content: center;
+  width: 100vw;
+  max-width: 1200px;
+  min-width: 260px;
+
+}
+
+.post {
+  background: #453d50;
+  padding: 20px;
+  border-radius: 6px;
+  margin: 40px 0;
+  line-height: 1.6;
+  padding-bottom: 30px;
+}
+
+.post:nth-of-type(even) {
+  background: #5a5068;
+}
+
+.post .author {
+  margin: 10px;
+  margin-top: 0;
+  margin-left: 0px;
+  display: flex;
+}
+
+.author__time {
+  margin-left: auto;
+  position: relative;
+}
+
+.author__time i {
+  position: absolute;
+  left: -30px;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin: 10px;
+  margin-left: 0;
+}
+
+.post p {
+  color: #ddd;
 }
 
 /* random stuffffffff */
@@ -252,7 +307,8 @@ main {
 }
 
 .install__btn {
-  font-weight: 600;;
+  font-weight: 600;
+  ;
   margin-top: 0;
   margin-bottom: 20px;
   color: #684a4a;
@@ -265,7 +321,7 @@ main {
 }
 
 .install__btn:hover,
-.btn:focus {
+.install__btn:focus {
   background: #d16969;
   color: #533b3b;
 }
@@ -288,10 +344,12 @@ main {
 .install__close i {
   color: #854444;
 }
+
 @media (max-width: 642px) {
   header nav {
     display: none;
   }
+
   .install__card {
     left: 0;
     bottom: 0;
@@ -305,6 +363,7 @@ main {
 }
 
 @media (max-width: 320px) {
+
   .logo a:hover,
   .logo a:focus {
     padding-left: 0;
@@ -312,3 +371,7 @@ main {
     border-left: none;
   }
 }
+
+/* @media screen and (display-mode: standalone) and (orientation: portrait) and (max-width: 600px) {
+
+} */
