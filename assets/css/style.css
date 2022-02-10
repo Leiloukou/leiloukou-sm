@@ -109,20 +109,19 @@ section {
 }
 
 ::-webkit-scrollbar {
-  background-color: #fff;
+  background: #393b4b;
   width: 0.875rem;
-  border-radius: 0.5625rem;
+  border-radius: none;
   margin-block: 0.375rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #b6b6b6;
-  border: 0.1875rem solid #fff;
-  border-radius: 0.5625rem;
+  background: #c26868;
+  transition: background 200ms ease-in;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #969696;
+  background: #644646;
 }
 
 @supports (scrollbar-color: #b6b6b6 #f1f1f1) {
