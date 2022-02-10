@@ -23,7 +23,10 @@ installClose = document.querySelector('#install-close');
 
 showInstallPromo = () => {
 	window.navigator.vibrate([200, 100, 200, 100, 200]);
-	installCard.style.transform = 'translate(0)';
+	installCard.style.display = 'block';
+	setTimeout(() => {
+		installCard.style.transform = 'translate(0)';
+	}, 100);
 };
 
 installBtn.addEventListener('click', async () => {
@@ -166,7 +169,73 @@ body.addEventListener('touchend', () => {
 		// alert('up')
 	}
 });
-console.log(window.location)
+
+// render posts
+
+let post = [];
+let ifUndefinedPost;
+let generatePosts;
+
+ifUndefinedPost = (i) => {
+	if (post[i] === undefined) {
+		return 'Leiloukou is best! <br>Leiloukou is so awesome that you should download this app rn.';
+	} else {
+		return post[i];
+	}
+}
+
+for (let i = 0; i < 20; i++) {
+	fetch('https://api.quotable.io/random')
+		.then(data => {
+			return data.json();
+		})
+		.then(data => {
+			post.push(data.content);
+		})
+		.catch(err => {
+			console.log(err);
+		});
+}
+
+generatePosts = () => {
+	for (let i = 0; i < 20; i = i + 1) {
+		fetch('https://randomuser.me/api/')
+			.then(user => {
+				return user.json();
+			}).then(data => {
+				document.getElementById('article').innerHTML =
+					document.getElementById('article').innerHTML +
+					`<section class="post">
+	                                    <div class="author">
+	                                          <div class="author__title">
+	                                                <a href="/profiles/${
+														data.results[0].login
+															.username
+													}/">@${
+						data.results[0].login.username
+					}</a>
+	                                          </div>
+	                                          <div class="author__time">
+	                                                <i class="material-icons">
+	                                                      schedule
+	                                                </i>
+	                                                Jan 1 2022, 12:00am
+	                                          </div>
+	                                    </div>
+	                                    <h3 class="post__title">A great quote to live by: </h3><p>${ifUndefinedPost(
+											i
+										)}</p>
+	                              </section>`;
+				console.log(data.results[0]);
+			})
+			.catch(err => console.log(err));
+	}
+	document.querySelectorAll('.loading').forEach(post => {
+		post.remove()
+	})
+}
+
+generatePosts()
 
 // clear the console
 
