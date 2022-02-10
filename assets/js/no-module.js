@@ -1,10 +1,8 @@
-/** @format */
-
-// if ('serviceWorker' in navigator) {
-// 	window.navigator.serviceWorker
-// 		.register('/sw.js')
-// 		.catch((err) => console.error('ServiceWorker error: ', err));
-// }
+if ('serviceWorker' in navigator) {
+	window.navigator.serviceWorker
+		.register('/sw.js')
+		.catch((err) => console.error('ServiceWorker error: ', err));
+}
 
 // install prompting
 
@@ -12,11 +10,12 @@ if (localStorage.getItem('installImpressions') === null) {
 	localStorage.setItem('installImpressions', 1);
 }
 
-let deferredPrompt;
-let showInstallPromo;
-let installCard;
-let installBtn;
-let installClose;
+let
+	deferredPrompt,
+	showInstallPromo,
+	installCard,
+	installBtn,
+	installClose;
 
 installCard = document.querySelector('#install-card');
 installBtn = document.querySelector('#install-button');
@@ -24,7 +23,10 @@ installClose = document.querySelector('#install-close');
 
 showInstallPromo = () => {
 	window.navigator.vibrate([200, 100, 200, 100, 200]);
-	installCard.style.transform = 'translate(0)';
+	installCard.style.display = 'block';
+	setTimeout(() => {
+		installCard.style.transform = 'translate(0)';
+	}, 100);
 };
 
 installBtn.addEventListener('click', async () => {
@@ -32,17 +34,17 @@ installBtn.addEventListener('click', async () => {
 		setTimeout(() => {
 			deferredPrompt.prompt();
 		}, 5000);
-		const { outcome } = await deferredPrompt.userChoice;
+		const {
+			outcome
+		} = await deferredPrompt.userChoice;
 		if (outcome === 'accepted') {
 			deferredPrompt = null;
 		} else {
+
 			setTimeout(() => {
 				if (localStorage.getItem('installImpressions') <= 8) {
 					showInstallPromo();
-					localStorage.setItem(
-						'installImpressions',
-						localStorage.getItem('installImpressions') + 1
-					);
+					localStorage.setItem('installImpressions', localStorage.getItem('installImpressions') + 1);
 				}
 			}, 1200000);
 		}
@@ -52,10 +54,10 @@ installBtn.addEventListener('click', async () => {
 installClose.addEventListener('click', () => {
 	if (window.matchMedia('(max-width: 642px)').matches) {
 		installCard.style.transform = 'translateY(100%)';
-		return;
+		return
 	} else {
 		installCard.style.transform = 'translateX(calc(-100% - 30px))';
-		return;
+		return
 	}
 });
 
@@ -77,11 +79,146 @@ if (localStorage.getItem('installedApp') !== 'yes') {
 			e.preventDefault();
 		}
 	});
-}
+};
 
 window.addEventListener('appinstalled', (evt) => {
-	localStorage.setItem('installedApp', 'yes');
+	localStorage.setItem('installedApp', 'yes')
 });
+// add swipe detection 
+
+let
+	body,
+	startingX,
+	startingY,
+	movingX,
+	movingY;
+body = document.body;
+
+body.addEventListener('touchstart', e => {
+	startingX = e.touches[0].clientX;
+	startingY = e.touches[0].clientY;
+});
+
+body.addEventListener('touchmove', e => {
+	movingX = e.touches[0].clientX;
+	movingY = e.touches[0].clientY;
+});
+
+body.addEventListener('touchend', () => {
+	if (startingX + 100 < movingX) {
+		// right
+		// alert('right')
+		if (
+			window.location.pathname === '/dashboard' ||
+			window.location.pathname === '/dashboard/'
+		) {
+			window.location.href = '/';
+		} else if (
+			window.location.pathname === '/'
+		) {
+			window.location.href = '/dashboard';
+
+		} else if (
+			window.location.pathname === '/settings' ||
+			window.location.pathname === '/settings/'
+		) {
+			window.location.href = '/dashboard';
+		}
+	} else if (startingX - 100 > movingX) {
+		// left
+		// alert('left')
+		if (
+			window.location.pathname === '/dashboard' ||
+			window.location.pathname === '/dashboard/'
+		) {
+			window.location.href = '/';
+		} else if (
+			window.location.pathname === '/'
+		) {
+			window.location.href = '/dashboard';
+		} else if (
+			window.location.pathname === '/settings' ||
+			window.location.pathname === '/settings/'
+		) {
+			window.location.href = '/dashboard';
+		}
+	} else if (startingY + 100 < movingY) {
+		// down
+		// alert('down')
+	} else if (startingX - 100 > movingY) {
+		// up
+		// alert('up')
+	}
+});
+
+// render posts
+
+let post = [];
+let ifUndefinedPost;
+let generatePosts;
+
+ifUndefinedPost = (i) => {
+	if (post[i] === undefined) {
+		return 'Leiloukou is best! <br>Leiloukou is so awesome that you should download this app rn.';
+	} else {
+		return post[i];
+	}
+}
+
+for (let i = 0; i < 20; i++) {
+	fetch('https://api.quotable.io/random')
+		.then(data => {
+			return data.json();
+		})
+		.then(data => {
+			post.push(data.content);
+		})
+		.catch(err => {
+			console.log(err);
+		});
+}
+
+generatePosts = () => {
+	for (let i = 0; i < 20; i = i + 1) {
+		fetch('https://randomuser.me/api/')
+			.then(user => {
+				return user.json();
+			}).then(data => {
+				document.getElementById('article').innerHTML =
+					document.getElementById('article').innerHTML +
+					`<section class="post">
+	                                    <div class="author">
+	                                          <div class="author__title">
+	                                                <a href="/profiles/${
+														data.results[0].login
+															.username
+													}/">@${
+						data.results[0].login.username
+					}</a>
+	                                          </div>
+	                                          <div class="author__time">
+	                                                <i class="material-icons">
+	                                                      schedule
+	                                                </i>
+	                                                Jan 1 2022, 12:00am
+	                                          </div>
+	                                    </div>
+	                                    <h3 class="post__title">A great quote to live by: </h3><p>${ifUndefinedPost(
+											i
+										)}</p>
+	                              </section>`;
+				console.log(data.results[0]);
+			})
+			.catch(err => console.log(err));
+	}
+	document.querySelectorAll('.loading').forEach(post => {
+		post.remove()
+	})
+}
+
+generatePosts()
+
+// clear the console
 
 setTimeout(() => {
 	console.clear();
