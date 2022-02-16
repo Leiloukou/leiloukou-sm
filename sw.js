@@ -1,8 +1,6 @@
-const cacheName = 'v1.0.6';
+const cacheName = 'v1.0.7';
 const assets = [
 	'/',
-	'/login',
-	'/login/',
 	'/dashboard',
 	'/dashboard/',
 	'assets/css/style.css',
