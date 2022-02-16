@@ -52,7 +52,7 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-	console.log(e.request.url);
+	console.log('e.request returned: ', e.request);
 	if (e.request.url !== '/random' || e.request.url !== '/api') {
       e.respondWith(
             caches
