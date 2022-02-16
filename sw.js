@@ -53,7 +53,7 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
 	console.log('e.request returned: ', e.request);
-	if (e.request.url !== '/random' || e.request.url !== '/api') {
+	if (e.request.url !== 'https://radomuser.me/api/' || e.request.url !== 'https://api.quotable.io/random') {
       e.respondWith(
             caches
             .match(e.request)
