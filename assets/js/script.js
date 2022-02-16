@@ -1118,8 +1118,13 @@ posts = posts
     .map(({
         value
     }) => value);
+
+posts.forEach(post => {
 document.getElementById('article').innerHTML =
-    document.getElementById('article').innerHTML + posts
+    document.getElementById('article').innerHTML + post})
+	      ;	document.querySelectorAll('.loading').forEach(post => {
+		post.remove()
+	})
 // clear the console
 
 setTimeout(() => {
