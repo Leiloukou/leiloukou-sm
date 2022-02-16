@@ -172,71 +172,954 @@ body.addEventListener('touchend', () => {
 
 // render posts
 
-let post = [];
-let ifUndefinedPost;
-let generatePosts;
+// let post = [];
+// let ifUndefinedPost;
+// let generatePosts;
 
-ifUndefinedPost = (i) => {
-	if (post[i] === undefined) {
-		return 'Leiloukou is best! <br>Leiloukou is so awesome that you should download this app rn.';
-	} else {
-		return post[i];
-	}
-}
+// ifUndefinedPost = (i) => {
+// 	if (post[i] === undefined) {
+// 		return 'Leiloukou is best! <br>Leiloukou is so awesome that you should download this app rn.';
+// 	} else {
+// 		return post[i];
+// 	}
+// }
 
-for (let i = 0; i < 20; i++) {
-	fetch('https://api.quotable.io/random')
-		.then(data => {
-			return data.json();
-		})
-		.then(data => {
-			post.push(data.content);
-		})
-		.catch(err => {
-			console.log(err);
-		});
-}
+// for (let i = 0; i < 20; i++) {
+// 	fetch('https://api.quotable.io/random')
+// 		.then(data => {
+// 			return data.json();
+// 		})
+// 		.then(data => {
+// 			post.push(data.content);
+// 		})
+// 		.catch(err => {
+// 			console.log(err);
+// 		});
+// }
 
-generatePosts = () => {
-	for (let i = 0; i < 20; i = i + 1) {
-		fetch('https://randomuser.me/api/')
-			.then(user => {
-				return user.json();
-			}).then(data => {
-				document.getElementById('article').innerHTML =
-					document.getElementById('article').innerHTML +
-					`<section class="post">
-	                                    <div class="author">
-	                                          <div class="author__title">
-	                                                <a href="/profiles/${
-														data.results[0].login
-															.username
-													}/">@${
-						data.results[0].login.username
-					}</a>
-	                                          </div>
-	                                          <div class="author__time">
-	                                                <i class="material-icons">
-	                                                      schedule
-	                                                </i>
-	                                                Jan 1 2022, 12:00am
-	                                          </div>
-	                                    </div>
-	                                    <h3 class="post__title">A great quote to live by: </h3><p>${ifUndefinedPost(
-											i
-										)}</p>
-	                              </section>`;
-				console.log(data.results[0]);
-			})
-			.catch(err => console.log(err));
-	}
-	document.querySelectorAll('.loading').forEach(post => {
-		post.remove()
-	})
-}
+// generatePosts = () => {
+// 	for (let i = 0; i < 20; i = i + 1) {
+// 		fetch('https://randomuser.me/api/')
+// 			.then(user => {
+// 				return user.json();
+// 			}).then(data => {
+// 				document.getElementById('article').innerHTML =
+// 					document.getElementById('article').innerHTML +
+// 					`<section class="post">
+// 	                                    <div class="author">
+// 	                                          <div class="author__title">
+// 	                                                <a href="/profiles/${
+// 														data.results[0].login
+// 															.username
+// 													}/">@${
+// 						data.results[0].login.username
+// 					}</a>
+// 	                                          </div>
+// 	                                          <div class="author__time">
+// 	                                                <i class="material-icons">
+// 	                                                      schedule
+// 	                                                </i>
+// 	                                                Jan 1 2022, 12:00am
+// 	                                          </div>
+// 	                                    </div>
+// 	                                    <h3 class="post__title">A great quote to live by: </h3><p>${ifUndefinedPost(
+// 											i
+// 										)}</p>
+// 	                              </section>`;
+// 				console.log(data.results[0]);
+// 			})
+// 			.catch(err => console.log(err));
+// 	}
+// 	document.querySelectorAll('.loading').forEach(post => {
+// 		post.remove()
+// 	})
+// }
 
-generatePosts()
+// generatePosts()
+let posts = [`<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/orangeduck488/">@orangeduck488</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/orangeduck488/">@orangeduck488</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallbird952/">@smallbird952</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/orangeduck488/">@orangeduck488</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallbird952/">@smallbird952</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrydog108/">@angrydog108</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/orangeduck488/">@orangeduck488</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallbird952/">@smallbird952</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrydog108/">@angrydog108</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/whitekoala273/">@whitekoala273</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/orangeduck488/">@orangeduck488</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallbird952/">@smallbird952</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrydog108/">@angrydog108</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/whitekoala273/">@whitekoala273</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrymouse472/">@angrymouse472</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/orangeduck488/">@orangeduck488</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallbird952/">@smallbird952</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrydog108/">@angrydog108</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/whitekoala273/">@whitekoala273</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrymouse472/">@angrymouse472</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/purplewolf865/">@purplewolf865</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Courage is what it takes to stand up and speak; courage is also what it takes to sit down and listen.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/orangeduck488/">@orangeduck488</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallbird952/">@smallbird952</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrydog108/">@angrydog108</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/whitekoala273/">@whitekoala273</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrymouse472/">@angrymouse472</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/purplewolf865/">@purplewolf865</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Courage is what it takes to stand up and speak; courage is also what it takes to sit down and listen.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/brownladybug748/">@brownladybug748</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>God has given you one face, and you make yourself another.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/orangeduck488/">@orangeduck488</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallbird952/">@smallbird952</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrydog108/">@angrydog108</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/whitekoala273/">@whitekoala273</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrymouse472/">@angrymouse472</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/purplewolf865/">@purplewolf865</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Courage is what it takes to stand up and speak; courage is also what it takes to sit down and listen.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/brownladybug748/">@brownladybug748</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>God has given you one face, and you make yourself another.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallgorilla281/">@smallgorilla281</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Of course there is no formula for success except perhaps an unconditional acceptance of life and what it brings.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/orangeduck488/">@orangeduck488</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallbird952/">@smallbird952</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrydog108/">@angrydog108</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/whitekoala273/">@whitekoala273</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrymouse472/">@angrymouse472</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/purplewolf865/">@purplewolf865</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Courage is what it takes to stand up and speak; courage is also what it takes to sit down and listen.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/brownladybug748/">@brownladybug748</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>God has given you one face, and you make yourself another.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallgorilla281/">@smallgorilla281</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Of course there is no formula for success except perhaps an unconditional acceptance of life and what it brings.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallkoala159/">@smallkoala159</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The minute you settle for less than you deserve, you get even less than you settled for.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/orangeduck488/">@orangeduck488</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallbird952/">@smallbird952</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrydog108/">@angrydog108</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/whitekoala273/">@whitekoala273</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/angrymouse472/">@angrymouse472</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/purplewolf865/">@purplewolf865</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Courage is what it takes to stand up and speak; courage is also what it takes to sit down and listen.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/brownladybug748/">@brownladybug748</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>God has given you one face, and you make yourself another.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallgorilla281/">@smallgorilla281</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Of course there is no formula for success except perhaps an unconditional acceptance of life and what it brings.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/smallkoala159/">@smallkoala159</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>The minute you settle for less than you deserve, you get even less than you settled for.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/brownzebra310/">@brownzebra310</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Many of life's failures are people who did not realize how close they were to success when they gave up.</p>
+</section>`, `<section class="post">
+<div class="author">
+<div class="author__title">
+<a href="/profiles/goldengoose634/">@goldengoose634</a>
+</div>
+<div class="author__time">
+<i class="material-icons">
+schedule
+</i>
+Jan 1 2022, 12:00am
+</div>
+</div>
+<h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
+</section>`];
 
+posts = posts
+    .map((value) => ({
+        value,
+        sort: Math.random()
+    }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({
+        value
+    }) => value);
+document.getElementById('article').innerHTML =
+    document.getElementById('article').innerHTML + posts
 // clear the console
 
 setTimeout(() => {
