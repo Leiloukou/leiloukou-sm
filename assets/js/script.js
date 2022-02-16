@@ -1,3 +1,5 @@
+/** @format */
+
 if ('serviceWorker' in navigator) {
 	window.navigator.serviceWorker
 		.register('/sw.js')
@@ -10,12 +12,7 @@ if (localStorage.getItem('installImpressions') === null) {
 	localStorage.setItem('installImpressions', 1);
 }
 
-let
-	deferredPrompt,
-	showInstallPromo,
-	installCard,
-	installBtn,
-	installClose;
+let deferredPrompt, showInstallPromo, installCard, installBtn, installClose;
 
 installCard = document.querySelector('#install-card');
 installBtn = document.querySelector('#install-button');
@@ -40,11 +37,13 @@ installBtn.addEventListener('click', async () => {
 		if (outcome === 'accepted') {
 			deferredPrompt = null;
 		} else {
-
 			setTimeout(() => {
 				if (localStorage.getItem('installImpressions') <= 8) {
 					showInstallPromo();
-					localStorage.setItem('installImpressions', localStorage.getItem('installImpressions') + 1);
+					localStorage.setItem(
+						'installImpressions',
+						localStorage.getItem('installImpressions') + 1
+					);
 				}
 			}, 1200000);
 		}
@@ -54,10 +53,10 @@ installBtn.addEventListener('click', async () => {
 installClose.addEventListener('click', () => {
 	if (window.matchMedia('(max-width: 642px)').matches) {
 		installCard.style.transform = 'translateY(100%)';
-		return
+		return;
 	} else {
 		installCard.style.transform = 'translateX(calc(-100% - 30px))';
-		return
+		return;
 	}
 });
 
@@ -79,46 +78,41 @@ if (localStorage.getItem('installedApp') !== 'yes') {
 			e.preventDefault();
 		}
 	});
-};
+}
 
 window.addEventListener('appinstalled', (evt) => {
-	localStorage.setItem('installedApp', 'yes')
+	localStorage.setItem('installedApp', 'yes');
 });
 
 // firebase
 
 import {
 	initializeApp
-} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";;
+} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
 
 const firebaseConfig = {
-	apiKey: "AIzaSyC55Pyo9cqAURnbcAo_pXZ2fF7z_4c5gK0",
-	authDomain: "leiloukou-okpfdvkjoiaffjmewikf.firebaseapp.com",
-	projectId: "leiloukou-okpfdvkjoiaffjmewikf",
-	storageBucket: "leiloukou-okpfdvkjoiaffjmewikf.appspot.com",
-	messagingSenderId: "145139690375",
-	appId: "1:145139690375:web:9dfba80a0d4293994a4122",
-	measurementId: "G-MCZSY125PV"
+	apiKey: 'AIzaSyC55Pyo9cqAURnbcAo_pXZ2fF7z_4c5gK0',
+	authDomain: 'leiloukou-okpfdvkjoiaffjmewikf.firebaseapp.com',
+	projectId: 'leiloukou-okpfdvkjoiaffjmewikf',
+	storageBucket: 'leiloukou-okpfdvkjoiaffjmewikf.appspot.com',
+	messagingSenderId: '145139690375',
+	appId: '1:145139690375:web:9dfba80a0d4293994a4122',
+	measurementId: 'G-MCZSY125PV'
 };
 
 const app = initializeApp(firebaseConfig);
 
-// add swipe detection 
+// add swipe detection
 
-let
-	body,
-	startingX,
-	startingY,
-	movingX,
-	movingY;
+let body, startingX, startingY, movingX, movingY;
 body = document.body;
 
-body.addEventListener('touchstart', e => {
+body.addEventListener('touchstart', (e) => {
 	startingX = e.touches[0].clientX;
 	startingY = e.touches[0].clientY;
 });
 
-body.addEventListener('touchmove', e => {
+body.addEventListener('touchmove', (e) => {
 	movingX = e.touches[0].clientX;
 	movingY = e.touches[0].clientY;
 });
@@ -132,11 +126,8 @@ body.addEventListener('touchend', () => {
 			window.location.pathname === '/dashboard/'
 		) {
 			window.location.href = '/';
-		} else if (
-			window.location.pathname === '/'
-		) {
+		} else if (window.location.pathname === '/') {
 			window.location.href = '/dashboard';
-
 		} else if (
 			window.location.pathname === '/settings' ||
 			window.location.pathname === '/settings/'
@@ -151,9 +142,7 @@ body.addEventListener('touchend', () => {
 			window.location.pathname === '/dashboard/'
 		) {
 			window.location.href = '/';
-		} else if (
-			window.location.pathname === '/'
-		) {
+		} else if (window.location.pathname === '/') {
 			window.location.href = '/dashboard';
 		} else if (
 			window.location.pathname === '/settings' ||
@@ -236,7 +225,10 @@ body.addEventListener('touchend', () => {
 // }
 
 // generatePosts()
-let posts = [`<section class="post">
+
+document.addEventListener('DOMContentLoaded', () => {
+	let posts = [
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -249,7 +241,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -262,7 +255,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/orangeduck488/">@orangeduck488</a>
@@ -275,7 +269,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -288,7 +283,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/orangeduck488/">@orangeduck488</a>
@@ -301,7 +297,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallbird952/">@smallbird952</a>
@@ -314,7 +311,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -327,7 +325,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/orangeduck488/">@orangeduck488</a>
@@ -340,7 +339,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallbird952/">@smallbird952</a>
@@ -353,7 +353,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrydog108/">@angrydog108</a>
@@ -366,7 +367,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -379,7 +381,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/orangeduck488/">@orangeduck488</a>
@@ -392,7 +395,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallbird952/">@smallbird952</a>
@@ -405,7 +409,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrydog108/">@angrydog108</a>
@@ -418,7 +423,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/whitekoala273/">@whitekoala273</a>
@@ -431,7 +437,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -444,7 +451,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/orangeduck488/">@orangeduck488</a>
@@ -457,7 +465,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallbird952/">@smallbird952</a>
@@ -470,7 +479,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrydog108/">@angrydog108</a>
@@ -483,7 +493,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/whitekoala273/">@whitekoala273</a>
@@ -496,7 +507,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrymouse472/">@angrymouse472</a>
@@ -509,7 +521,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -522,7 +535,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/orangeduck488/">@orangeduck488</a>
@@ -535,7 +549,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallbird952/">@smallbird952</a>
@@ -548,7 +563,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrydog108/">@angrydog108</a>
@@ -561,7 +577,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/whitekoala273/">@whitekoala273</a>
@@ -574,7 +591,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrymouse472/">@angrymouse472</a>
@@ -587,7 +605,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/purplewolf865/">@purplewolf865</a>
@@ -600,7 +619,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Courage is what it takes to stand up and speak; courage is also what it takes to sit down and listen.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -613,7 +633,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/orangeduck488/">@orangeduck488</a>
@@ -626,7 +647,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallbird952/">@smallbird952</a>
@@ -639,7 +661,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrydog108/">@angrydog108</a>
@@ -652,7 +675,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/whitekoala273/">@whitekoala273</a>
@@ -665,7 +689,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrymouse472/">@angrymouse472</a>
@@ -678,7 +703,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/purplewolf865/">@purplewolf865</a>
@@ -691,7 +717,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Courage is what it takes to stand up and speak; courage is also what it takes to sit down and listen.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/brownladybug748/">@brownladybug748</a>
@@ -704,7 +731,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>God has given you one face, and you make yourself another.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -717,7 +745,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/orangeduck488/">@orangeduck488</a>
@@ -730,7 +759,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallbird952/">@smallbird952</a>
@@ -743,7 +773,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrydog108/">@angrydog108</a>
@@ -756,7 +787,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/whitekoala273/">@whitekoala273</a>
@@ -769,7 +801,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrymouse472/">@angrymouse472</a>
@@ -782,7 +815,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/purplewolf865/">@purplewolf865</a>
@@ -795,7 +829,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Courage is what it takes to stand up and speak; courage is also what it takes to sit down and listen.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/brownladybug748/">@brownladybug748</a>
@@ -808,7 +843,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>God has given you one face, and you make yourself another.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallgorilla281/">@smallgorilla281</a>
@@ -821,7 +857,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Of course there is no formula for success except perhaps an unconditional acceptance of life and what it brings.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -834,7 +871,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/orangeduck488/">@orangeduck488</a>
@@ -847,7 +885,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallbird952/">@smallbird952</a>
@@ -860,7 +899,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrydog108/">@angrydog108</a>
@@ -873,7 +913,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/whitekoala273/">@whitekoala273</a>
@@ -886,7 +927,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrymouse472/">@angrymouse472</a>
@@ -899,7 +941,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/purplewolf865/">@purplewolf865</a>
@@ -912,7 +955,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Courage is what it takes to stand up and speak; courage is also what it takes to sit down and listen.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/brownladybug748/">@brownladybug748</a>
@@ -925,7 +969,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>God has given you one face, and you make yourself another.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallgorilla281/">@smallgorilla281</a>
@@ -938,7 +983,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Of course there is no formula for success except perhaps an unconditional acceptance of life and what it brings.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallkoala159/">@smallkoala159</a>
@@ -951,7 +997,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The minute you settle for less than you deserve, you get even less than you settled for.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -964,7 +1011,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/orangeduck488/">@orangeduck488</a>
@@ -977,7 +1025,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The greatest danger for most of us is not that our aim is too high, and we miss it, but that it is too low, and we reach it.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallbird952/">@smallbird952</a>
@@ -990,7 +1039,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>How wonderful it is that nobody need wait a single moment before starting to improve the world.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrydog108/">@angrydog108</a>
@@ -1003,7 +1053,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>I have always thought the actions of men the best interpreters of their thoughts.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/whitekoala273/">@whitekoala273</a>
@@ -1016,7 +1067,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Forgiveness is choosing to love. It is the first skill of self-giving love.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/angrymouse472/">@angrymouse472</a>
@@ -1029,7 +1081,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Life is a travelling to the edge of knowledge, then a leap taken.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/purplewolf865/">@purplewolf865</a>
@@ -1042,7 +1095,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Courage is what it takes to stand up and speak; courage is also what it takes to sit down and listen.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/brownladybug748/">@brownladybug748</a>
@@ -1055,7 +1109,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>God has given you one face, and you make yourself another.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallgorilla281/">@smallgorilla281</a>
@@ -1068,7 +1123,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Of course there is no formula for success except perhaps an unconditional acceptance of life and what it brings.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/smallkoala159/">@smallkoala159</a>
@@ -1081,7 +1137,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>The minute you settle for less than you deserve, you get even less than you settled for.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/brownzebra310/">@brownzebra310</a>
@@ -1094,7 +1151,8 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Many of life's failures are people who did not realize how close they were to success when they gave up.</p>
-</section>`, `<section class="post">
+</section>`,
+		`<section class="post">
 <div class="author">
 <div class="author__title">
 <a href="/profiles/goldengoose634/">@goldengoose634</a>
@@ -1107,24 +1165,27 @@ Jan 1 2022, 12:00am
 </div>
 </div>
 <h3 class="post__title">A great quote to live by: </h3><p>Being entirely honest with oneself is a good exercise.</p>
-</section>`];
+</section>`
+	];
 
-posts = posts
-    .map((value) => ({
-        value,
-        sort: Math.random()
-    }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({
-        value
-    }) => value);
+	posts = posts
+		.map((value) => ({
+			value,
+			sort: Math.random()
+		}))
+		.sort((a, b) => a.sort - b.sort)
+		.map(({
+			value
+		}) => value);
 
-posts.forEach(post => {
-document.getElementById('article').innerHTML =
-    document.getElementById('article').innerHTML + post})
-	      ;	document.querySelectorAll('.loading').forEach(post => {
-		post.remove()
-	})
+	posts.forEach((post) => {
+		document.getElementById('article').innerHTML =
+			document.getElementById('article').innerHTML + post;
+	});
+	document.querySelectorAll('.loading').forEach((post) => {
+		post.remove();
+	});
+});
 // clear the console
 
 setTimeout(() => {
