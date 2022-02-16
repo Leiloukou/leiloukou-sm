@@ -53,6 +53,7 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
 	console.log(e);
+	if (e.request.url !== '/') {
       e.respondWith(
             caches
             .match(e.request)
@@ -72,4 +73,5 @@ self.addEventListener('fetch', (e) => {
                   return caches.match('/error');
             })
       );
+	}
 });
