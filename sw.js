@@ -52,8 +52,12 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
+	    if ( event.request.url.match( '^.*(\/api\/).*$' ) ) {
+        return false;
+    } else if ( event.request.url.match( '^.*(\/random\/).*$' ) ) {
+        return false;
+    }
 	console.log('e.request returned: ', e.request);
-	if (e.request.url !== 'https://radomuser.me/api/' || e.request.url !== 'https://api.quotable.io/random') {
       e.respondWith(
             caches
             .match(e.request)
@@ -73,5 +77,4 @@ self.addEventListener('fetch', (e) => {
                   return caches.match('/error');
             })
       );
-	}
 });
