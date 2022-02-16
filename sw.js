@@ -52,8 +52,8 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-	console.log(e);
-	if (e.request.url !== '/') {
+	console.log(e.request.url);
+	if (e.request.url !== '/random' || e.request.url !== '/api') {
       e.respondWith(
             caches
             .match(e.request)
