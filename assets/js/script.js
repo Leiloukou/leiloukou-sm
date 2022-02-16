@@ -226,7 +226,7 @@ body.addEventListener('touchend', () => {
 
 // generatePosts()
 
-document.addEventListener('DOMContentLoaded', () => {
+setTimeout(() => {
 	let posts = [
 		`<section class="post">
 <div class="author">
@@ -1174,9 +1174,7 @@ Jan 1 2022, 12:00am
 			sort: Math.random()
 		}))
 		.sort((a, b) => a.sort - b.sort)
-		.map(({
-			value
-		}) => value);
+		.map(({ value }) => value);
 
 	posts.forEach((post) => {
 		document.getElementById('article').innerHTML =
@@ -1185,7 +1183,7 @@ Jan 1 2022, 12:00am
 	document.querySelectorAll('.loading').forEach((post) => {
 		post.remove();
 	});
-});
+}, 2000);
 // clear the console
 
 setTimeout(() => {
