@@ -52,9 +52,9 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-	    if ( event.request.url.match( '^.*(\/api\/).*$' ) ) {
+	    if ( event.request.url.match( '/api' ) ) {
         return false;
-    } else if ( event.request.url.match( '^.*(\/random\/).*$' ) ) {
+    } else if ( event.request.url.match( '/random' ) ) {
         return false;
     }
 	console.log('e.request returned: ', e.request);
