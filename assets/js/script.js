@@ -1183,7 +1183,7 @@ Jan 1 2022, 12:00am
 	document.querySelectorAll('.loading').forEach((post) => {
 		post.remove();
 	});
-}, 2000);
+}, 600);
 // clear the console
 
 setTimeout(() => {
