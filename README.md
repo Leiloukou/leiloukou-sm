@@ -11,9 +11,10 @@ api.quotable.io api to generate the post body.
  
 You can find it at [leiloukou-sm.netlify.app](https://leiloukou-sm.netlify.app/). 
  
-## ~~The next part of the project~~
+## The next part of the project
 
 ~~I am going to turn this repo into a real 
 social media app with either 
 PHP, or Node JS; I'm not sure.~~
  
+This project is now abandoned...
